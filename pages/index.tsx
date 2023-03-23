@@ -32,7 +32,7 @@ const Home = ({ projects, skills, pageInfo, experiences, socials }: Props) => {
         <meta name="keywords" content="Diana Zawislak, portfolio, web development, coding" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="snap-y snap-mandatory h-screen overflow-y-scroll scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 bg-[rgb(55,53,53)] text-white z-0">
+      <div className="snap-y snap-mandatory h-screen overflow-y-scroll scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#7bff05]/50 bg-[rgb(55,53,53)] text-white z-0">
         <Header socials={socials} />
 
         {/* Hero Banner Section */}
