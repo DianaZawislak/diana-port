@@ -65,4 +65,11 @@ interface SanityBody {
     title: string;
     url: string;
   }
+
+  export interface School extends SanityBody {
+    name: string;
+    _type: "project";
+    image: Image;
+    linkToBuild: string;
   
+  }

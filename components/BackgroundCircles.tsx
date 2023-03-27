@@ -14,11 +14,11 @@ function BackgroundCircles() {
         borderRadius: ["20%", "20%", "50%", "80%", "20%"],
       }}
     >
-      <div className="rounded-full border border-[#7bff00] h-[200px] w-[200px] absolute mt-52 animate-ping" />
+      <div className="rounded-3xl border border-[#7bff00] h-[300px] w-[300px] absolute mt-52 animate-ping animate-pulse" />
       <div className="rounded-full border border-[#333333] h-[300px] w-[300px] absolute mt-52" />
       <div className="rounded-full border border-[#333333] h-[500px] w-[500px] absolute mt-52" />
-      <div className="rounded-full border border-[#7bff00] opacity-20 h-[650px] w-[650px] absolute mt-52 animate-pulse" />
-      <div className="rounded-full border border-[#1b1c1c] h-[800px] w-[800px] absolute mt-52" />
+      <div className="rounded-full border border-[#7bff00] px-5opacity-5 h-[700px] w-[700px] absolute mt-52 animate-pulse1" />
+      <div className="rounded-full border border-[#1b1c1c] h-[800px] w-[800px] absolute mt-52 animate-pulse1" />
     </motion.div>
   );
 }

@@ -12,9 +12,11 @@ type Props = {
 function Hero({ pageInfo }: Props) {
   const [text, count] = useTypewriter({
     words: [
-      `Hi, my name is ${pageInfo?.name}`,
-      "Live, Breath, Code",
-      "Sleep, Eat Code, Repeat",
+      `Hi, I am Diana `, /*{pageInfo?.name}*/
+      "Live, Breathe, Code",
+      "From An Idea...To An Application",
+      "Sleep, Eat, Code, Repeat",
+      "Let's Go"
     ],
     loop: true,
     delaySpeed: 4000,
@@ -24,20 +26,20 @@ function Hero({ pageInfo }: Props) {
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
       <BackgroundCircles />
       <img
-        className="relative rounded-full h-32 w-32 mx-auto object-cover"
+        className="relative rounded-3xl h-40 w-40 mx-auto object-cover"
         src={urlFor(pageInfo?.heroImage).url()}
         alt=""
       />
       <div className="z-20 relative">
-        <h2 className="tracking-[15px] text-md uppercase text-gray-500 pb-2">  {/*style this in layer global CSS*/}
+        <h2 className="tracking-[15px] text-lg uppercase text-gray-400 pb-2">  {/*style this in layer global CSS*/}
           {pageInfo?.role}
         </h2>
-        <h1 className="text-3xl text-gray-300 lg:text-4xl font-semibold px-10">
+        <h1 className="text-xl text-gray-300 lg:text-4xl font-semibold px-10">
           <span className="mr-3">{text}</span>
           <Cursor cursorColor="#7bff00" />
         </h1>
 
-        <div className="pt-5">
+        <div className="pt-2">
           <Link href="#about">
             <button className="heroButton">About</button>
           </Link>
