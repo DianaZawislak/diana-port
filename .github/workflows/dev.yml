@@ -42,7 +42,7 @@ jobs:
       env:
         HEROKU_APP_NAME: aaaa-dev
       run: |
-        docker tag my-nextjs-app:dev registry.heroku.com/${HEROKU_APP_NAME}/web
+        docker tag portfoliodiana:1.1 registry.heroku.com/${HEROKU_APP_NAME}/web
         docker push registry.heroku.com/${HEROKU_APP_NAME}/web
 
 
