@@ -32,71 +32,79 @@ function ContactMe({ pageInfo }: Props) {
       transition={{ duration: 1.5 }}
       className="flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 h-screen justify-evenly mx-auto items-center"
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-28 uppercase tracking-[20px] text-gray-500 text-2xl lg:text-4xl md:text-3xl  sm:text-2xl">
         Contact
       </h3>
 
-      <div className="flex flex-col space-y-10">
-        <h4 className="text-4xl font-semibold text-center">
-          I have got just what you need.{" "}
+      <div className="flex flex-col space-y-10 mt-10">
+        <h4 className="lg:text-4xl md:text-2xl font-semibold text-center mt-20">
+          Let's create something amazing...{" "}
          
         </h4>
 
         <div className="space-y-10">
           <div className="flex items-center space-x-5 justify-center">
             <PhoneIcon className="text-[#7bff00] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">{pageInfo.phoneNumber}</p>
+            <p className="lg:text-2xl md:text-xl sm:text-lg">{pageInfo.phoneNumber}</p>
           </div>
           <div className="flex items-center space-x-5 justify-center">
             <EnvelopeIcon className="text-[#7bff00] h-7 w-7 animate-pulse" />
-            <a className="text-2xl" href={`mailto:${pageInfo.email}`}>
+            <a className="lg:text-2xl md:text-xl sm:text-lg" href={`mailto:${pageInfo.email}`}>
               {pageInfo.email}
             </a>
           </div>
           <div className="flex items-center space-x-5 justify-center">
             <MapPinIcon className="text-[#7bff00] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">{pageInfo.address}</p>
+            <p className="lg:text-2xl md:text-xl sm:text-lg">{pageInfo.address}</p>
           </div>
         </div>
 
         <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-2 w-fit mx-auto"
-        >
-          <div className="flex space-x-2">
-            <input
-              className="contactInput"
-              placeholder="Name"
-              type="text"
-              {...register("name")}
-            />
-            <input
-              className="contactInput"
-              placeholder="Email"
-              type="text"
-              {...register("email")}
-            />
-          </div>
-          <input
-            className="contactInput"
-            placeholder="Subject"
-            type="text"
-            {...register("subject")}
-          />
-          <textarea
-            className="contactInput h-36"
-            placeholder="Message"
-            {...register("message")}
-          />
+  onSubmit={handleSubmit(onSubmit)}
+  className="flex flex-col space-y-2 w-fit mx-auto"
+  style={{ width: "100%" }}
+>
+  <div className="flex  flex-wrap w-full">
+    <input
+      className="contactInput flex-grow-1  mb-2 w-full"
+      placeholder="Name"
+      type="text"
+      {...register("name")}
+      style={{ maxWidth: "100%" }}
+    />
+    <input
+      className="contactInput flex-grow-1 w-full"
+      placeholder="Email"
+      type="text"
+      {...register("email")}
+      style={{ maxWidth: "100%" }}
+    />
+  </div>
+  <input
+    className="contactInput"
+    placeholder="Subject"
+    type="text"
+    {...register("subject")}
+    style={{ maxWidth: "100%" }}
+  />
+  <textarea
+    className="contactInput h-36"
+    placeholder="Message"
+    {...register("message")}
+    style={{ maxWidth: "100%" }}
+  />
 
-          <button
-            type="submit"
-            className="
+  <button
+    type="submit"
+    className="
             bg-[#7bff00]  opacity-75 py-5 px-10 rounded-md text-black font-bold text-lg "
-          >
-            Submit
-          </button>
-        </form>
+  >
+    Submit
+  </button>
+</form>
+
+
+
       </div>
     </motion.div>
   );
