@@ -17,7 +17,7 @@ jobs:
         with:
           context: .
           push: false
-          tags: my-nextjs-app:latest
+          tags: portfoliodiana:1.1
 
       - name: Login to Heroku Container Registry
         uses: docker/login-action@v1
@@ -28,7 +28,7 @@ jobs:
 
       - name: Push Docker image to Heroku Container Registry
         run: |
-          docker tag my-nextjs-app registry.heroku.com/my-heroku-app/web
+          docker tag portfoliodiana:1.1 registry.heroku.com/my-heroku-app/web
           docker push registry.heroku.com/my-heroku-app/web
 
   deploy:
