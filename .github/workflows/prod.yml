@@ -1,0 +1,44 @@
+name: Production Workflow 1
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build-container:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: false
+          tags: my-nextjs-app:latest
+
+      - name: Login to Heroku Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: registry.heroku.com
+          username: ${{ secrets.HEROKU_USERNAME }}
+          password: ${{ secrets.HEROKU_API_KEY }}
+
+      - name: Push Docker image to Heroku Container Registry
+        run: |
+          docker tag my-nextjs-app registry.heroku.com/my-heroku-app/web
+          docker push registry.heroku.com/my-heroku-app/web
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-container
+    steps:
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: my-heroku-app
+          heroku_email: your-email@example.com
+          usedocker: true
