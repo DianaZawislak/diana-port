@@ -38,8 +38,7 @@ function ContactMe({ pageInfo }: Props) {
 
       <div className="flex flex-col space-y-10 mt-10">
         <h4 className="lg:text-4xl md:text-2xl font-semibold text-center mt-20">
-          Let's create something amazing...{" "}
-         
+        Let&apos;s create something amazing...
         </h4>
 
         <div className="space-y-10">
