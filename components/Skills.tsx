@@ -20,23 +20,33 @@ function Skills({ skills }: Props) {
         Skills
       </h3>
       <h3 className="absolute top-40 uppercase tracking-[3px] text-gray-500 text-xs ">
-        Hover over a skill for current profieciency
+        Hover over a skill for current proficiency
       </h3>
 
       <div className="grid grid-cols-6 gap-1">
-  {/* Get first half of skills and map */}
-  {skills?.slice(0, Math.ceil(skills.length / 2)).map((skill) => (
-    <Skill key={skill._id} skill={skill} /> 
-  ))}
+        {/* Get first half of skills and map */}
+        {skills?.slice(0, Math.ceil(skills.length / 2)).map((skill) => (
+          <Skill key={skill._id} skill={skill} />
+        ))}
 
-  {/* Get second half of skills and map with direction left */}
-  {skills?.slice(Math.ceil(skills.length / 2), skills.length).map((skill) => (
-    <Skill key={skill._id} skill={skill} directionLeft />
-  ))}
-</div>
+        {/* Get second half of skills and map with direction left */}
+        {skills
+          ?.slice(Math.ceil(skills.length / 2), skills.length)
+          .map((skill) => (
+            <Skill key={skill._id} skill={skill} directionLeft />
+          ))}
+      </div>
 
-
-
+      {/* Add download link */}
+      <div className="mt-10">
+        <a
+          href="\ResumeDianaZawislak2023.pdf"
+          download="DianaZawislakResume"
+          className="text-gray-500 text-xl"
+        >
+          DOWNLOAD MY RESUME HERE
+        </a>
+      </div>
     </motion.div>
   );
 }
