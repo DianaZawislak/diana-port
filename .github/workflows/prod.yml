@@ -28,8 +28,8 @@ jobs:
 
       - name: Push Docker image to Heroku Container Registry
         run: |
-          docker tag portfoliodiana:1.1 registry.heroku.com/my-heroku-app/web
-          docker push registry.heroku.com/diana-portfolio-new/web
+          docker tag portfoliodiana:1.1 registry.heroku.com/diana-portfolio-new/web:latest
+          docker push registry.heroku.com/diana-portfolio-new/web:latest
 
   deploy:
     runs-on: ubuntu-latest
