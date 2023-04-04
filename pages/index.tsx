@@ -23,6 +23,8 @@ type Props = {
   socials: Social[];
 };
 
+
+
 const Home = ({ projects, skills, pageInfo, experiences, socials }: Props) => {
   return (
     <>
