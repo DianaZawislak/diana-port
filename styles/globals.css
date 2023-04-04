@@ -46,3 +46,42 @@
 .animate-ping {
   animation: ping 4s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    color: gray;
+  }
+  50% {
+    transform: scale(1.3);
+    color: #7bff00;
+    opacity: .3;
+  }
+  100% {
+    transform: scale(1);
+    color: gray;
+  }
+
+
+}
+
+.pulsing-text {
+  animation-name: pulse;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+.group {
+  opacity: 0.5;
+}
+
+.group:hover {
+  opacity: 1;
+}

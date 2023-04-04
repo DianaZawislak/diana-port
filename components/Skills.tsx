@@ -19,34 +19,26 @@ function Skills({ skills }: Props) {
       <h3 className="absolute top-28 uppercase tracking-[20px] text-gray-500 text-2xl lg:text-4xl md:text-3xl  sm:text-2xl">
         Skills
       </h3>
-      <h3 className="absolute top-40 uppercase tracking-[3px] text-gray-500 text-xs ">
-        Hover over a skill for current proficiency
-      </h3>
-
-      <div className="grid grid-cols-6 gap-1">
-        {/* Get first half of skills and map */}
-        {skills?.slice(0, Math.ceil(skills.length / 2)).map((skill) => (
-          <Skill key={skill._id} skill={skill} />
-        ))}
-
-        {/* Get second half of skills and map with direction left */}
-        {skills
-          ?.slice(Math.ceil(skills.length / 2), skills.length)
-          .map((skill) => (
-            <Skill key={skill._id} skill={skill} directionLeft />
-          ))}
-      </div>
-
-      {/* Add download link */}
-      <div className="mt-10">
+      <h3 className="absolute bottom-40 mt-10 uppercase tracking-[3px] pulsing-text">
         <a
           href="\ResumeDianaZawislak2023.pdf"
           download="DianaZawislakResume"
-          className="text-gray-500 text-xl"
+          className=" lg:text-2xl sm:text-xl mb-10 "
         >
           DOWNLOAD MY RESUME HERE
         </a>
-      </div>
+      </h3>
+      {/* Add download link */}
+    
+
+      <div className="grid grid-cols-6 grid-rows-6 gap-1 absolute bottom-50">
+  {/* Map through all the skills */}
+  {skills?.map((skill) => (
+    <Skill key={skill._id} skill={skill} />
+  ))}
+</div>
+
+      
     </motion.div>
   );
 }

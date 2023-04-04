@@ -14,9 +14,9 @@ function WorkExperience({ experiences }: Props) {
       whileInView={{ opacity: 1 }}
       //   viewport={{ once: true }}
       transition={{ duration: 1.5 }}
-      className="flex relative overflow-hidden flex-col text-left md:flex-row max-w-full px-5 font-thin h-screen justify-evenly mx-auto items-center"
+      className="flex relative overflow-hidden flex-col text-center md:flex-row max-w-full px-5 font-thin h-screen justify-evenly mx-auto items-center"
     >
-      <h3 className="absolute top-24 sm:mb-8 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-28 uppercase tracking-[20px] text-gray-500 text-2xl lg:text-4xl md:text-3xl  sm:text-2xl">
         Experience
       </h3>
 
