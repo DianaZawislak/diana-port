@@ -3,7 +3,7 @@ import { PageInfo } from "../typings";
 export const fetchPageInfo = async () => {
   try {
     const res = await fetch(
-      `https://aportfolio.herokuapp/api/getPageInfo`
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/getPageInfo`
     );
 
     // Check res for error
