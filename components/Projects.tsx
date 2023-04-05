@@ -20,7 +20,7 @@ function Projects({ projects }: Props) {
         Projects
       </h3>
 
-      <div className="relative w-full  flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#7bff00]/80">
+      <div className="relative w-full  flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#7bff00]/50">
         {projects.map((project, i) => (
           <motion.div
             key={project._id}
@@ -35,19 +35,19 @@ function Projects({ projects }: Props) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 src={urlFor(project?.image).url()}
-                className=" sm:w-200 sm:h-300 md:w-260 md:h-400 lg:w-[800px] lg:h-[480px] xl:w-[1000px] xl:h-[600px] object-contain cursor-pointer"
+                className=" sm:w-200 sm:h-300 md:w-260 md:h-400 lg:w-[800px] lg:h-[480px] xl:w-[900px] xl:h-[400px] object-contain cursor-pointer"
               />
             </Link>
 
             <div className="space-y-5 px-0 md:px-10 max-w-6xl">
-              <h4 className="lg:text-3xl sm:text-xs md:text-sm font-semibold text-center">
+              <h4 className="lg:text-2xl sm:text-xs md:text-sm font-semibold text-center">
                 <span>
                   Project {i + 1} of {projects.length}:
                 </span>{" "}
                 {project.title}
               </h4>
               <div style={{maxWidth: "700px"}}>
-              <p className="lg:text-md md:text-sm sm:text-xs text-center ">
+              <p className="text-sm lg:text-md text-center ">
                 {project.summary}
               </p>
               </div>
