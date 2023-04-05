@@ -31,12 +31,12 @@ function Skills({ skills }: Props) {
       {/* Add download link */}
     
 
-      <div className="grid grid-cols-6 grid-rows-6 gap-1 absolute bottom-50">
-  {/* Map through all the skills */}
-  {skills?.map((skill) => (
-    <Skill key={skill._id} skill={skill} />
-  ))}
-</div>
+      <div className="grid grid-cols-6 gap-3 grid-rows-6 absolute bottom-50 mx-6">
+        {/* Map through all the skills */}
+        {skills?.map((skill) => (
+        <Skill key={skill._id} skill={skill} />
+            ))}
+      </div>
 
       
     </motion.div>
