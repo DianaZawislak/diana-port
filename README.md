@@ -12,6 +12,14 @@ yarn dev
 pnpm dev
 ```
 
+To update deployment:
+```bash
+docker build -t aaaaa .
+heroku container:push web -a aportfolio
+heroku container:release web -a aportfolio
+```
+
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
