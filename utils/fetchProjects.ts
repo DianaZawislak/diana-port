@@ -2,7 +2,7 @@ import { Project } from "../typings";
 
 export const fetchProjects = async () => {
   const res = await fetch(
-    `${process.env.aportfolio}.herokuapp/api/getProjects`
+    `https://aportfolio.herokuapp/api/getProjects`
   );
 
   const data = await res.json();
