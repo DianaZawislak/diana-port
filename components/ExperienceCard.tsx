@@ -9,8 +9,8 @@ type Props = {
 
 function ExperienceCard({ experience }: Props) {
   return (
-    <article className="flex flex-col  rounded-lg items-center space-y-7 flex-shrink-0 w-[400px] md:w-[600px] xl:w-[900px] snap-center bg-[#252323] 
-    p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden" style={{ margin: '0 auto' }}>
+    <article className="flex flex-col rounded-lg items-center mt-5 space-y-7 flex-shrink-0 w-[400px] h-[500px]  md:w-[600px] xl:w-[900px] snap-center bg-[#252323] 
+    p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-scroll lg:overflow-hidden" style={{ margin: '0 auto' }}>
       <motion.img
         initial={{
           y: -100,
@@ -20,13 +20,16 @@ function ExperienceCard({ experience }: Props) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         src={urlFor(experience.companyImage).url()}
-        className="w-28 h-28 rounded-full md:rounded-full xl:w-[120px] xl:h-[120px] sm:w-[30px] sm:h-[30px] object-cover lg:h-100 lg:w-100 object-center"
+        className="w-24 h-24 rounded-lg md:rounded-lg
+                  xl:w-[120px] xl:h-[120px]
+                  lg:h-[100px] lg:w-[100px] object-center
+                  object-cover"
       />
 
-      <div className="lg:px-0 md:px-10 sm:px-5 mb-11">
+      <div className="lg:px-0 md:px-10 sm:px-1 ">
         <h4 className=" sm:text-xs md:text-2xl text-center font-light uppercase mb-5">{experience.jobTitle}</h4>
         {/* //job description */}
-        <p className="lg:px-8 sm:px-1 lg:text-lg md:text-md xs:text-xs sm:text-xs text-center lg:h-[200px] ">{experience.company}</p>
+        <p className="lg:px-8 sm:px-1  text-md text-center lg:h-[200px]  ">{experience.company}</p>
         {/* <div className="flex space-x-2 my-2">
           {experience.technologies.map((technology) => (
             <img
@@ -37,7 +40,7 @@ function ExperienceCard({ experience }: Props) {
           ))}
         </div> */}
 
-        <p className="uppercase py-5 mt-5 text-gray-300">
+        <p className="uppercase py-1 mt-1 text-gray-300">
           {new Date(experience.dateStarted).toDateString()} -{" "}
           {experience.isCurrentlyWorkingHere
             ? "Present"

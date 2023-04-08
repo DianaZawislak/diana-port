@@ -27,7 +27,7 @@ function About({ pageInfo }: Props) {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         src={urlFor(pageInfo?.profilePic).url()}
-        className="w-[160px] h-[160px]  rounded-full xl:w-[300px] xl:h-[300px] lg:w-[300px] lg:h-[300px] object-cover mt-20 "
+        className="w-[120px] h-[120px]  rounded-full xl:w-[300px] xl:h-[300px] lg:w-[300px] lg:h-[300px] object-cover mt-24 "
       ></motion.img>
  
       <div className="space-y-10 px-0 md:px-5 flex-shrink-4">
