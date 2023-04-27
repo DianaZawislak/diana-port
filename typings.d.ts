@@ -36,6 +36,14 @@ interface SanityBody {
     points: string[];
     technologies: Technology[];
   }
+
+  export interface EducationType extends SanityBody {
+    _type: "education";
+    diplomaImage: Image;
+    yearStarted: number;
+    dateEnded: number;
+    linkToCertificate: string;
+  }
   
   export interface Technology extends SanityBody {
     _type: "skill";
@@ -64,12 +72,4 @@ interface SanityBody {
     _type: "social";
     title: string;
     url: string;
-  }
-
-  export interface School extends SanityBody {
-    name: string;
-    _type: "project";
-    image: Image;
-    linkToBuild: string;
-  
   }

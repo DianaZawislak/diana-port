@@ -6,13 +6,15 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
+import Education from "../components/Education";
 import WorkExperience from "../components/WorkExperience";
-import { Experience, PageInfo, Project, Skill, Social } from "../typings";
+import { Experience, PageInfo, Project, Skill, Social, EducationType } from "../typings";
 import { fetchPageInfo } from "../utils/fetchPageInfo";
 import { fetchExperiences } from "../utils/fetchExperiences";
 import { fetchSkills } from "../utils/fetchSkills";
 import { fetchProjects } from "../utils/fetchProjects";
 import { fetchSocial } from "../utils/fetchSocials";
+import { fetchEducation } from "../utils/fetchEducation";
 import Link from "next/link";
 
 type Props = {
@@ -21,11 +23,12 @@ type Props = {
   skills: Skill[];
   projects: Project[];
   socials: Social[];
+  school: EducationType[];
 };
 
 
 
-const Home = ({ projects, skills, pageInfo, experiences, socials }: Props) => {
+const Home = ({ projects, skills, pageInfo, experiences, socials, school }: Props) => {
   return (
     <>
       <Head>
@@ -45,6 +48,12 @@ const Home = ({ projects, skills, pageInfo, experiences, socials }: Props) => {
         {/* About Section */}
         <section id="about" className="snap-center">
           <About pageInfo={pageInfo} />
+        </section>
+
+        
+        {/* Education Section */}
+        <section id="education" className="snap-center">
+          <Education school={school} />
         </section>
 
         {/* Skills Section */}
@@ -100,7 +109,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const skills: Skill[] = await fetchSkills();
   const projects: Project[] = await fetchProjects();
   const socials: Social[] = await fetchSocial();
-
+  const school: EducationType[] = await fetchEducation();
   return {
     props: {
       pageInfo,
@@ -108,6 +117,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       skills,
       projects,
       socials,
+      school,
     },
     // Next.js will attempt to re-generate the page:
     // - When a request comes in

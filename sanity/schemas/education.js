@@ -3,29 +3,37 @@ export default {
   title: "Education",
   type: "document",
   fields: [
+
     {
-      name: "title",
-      title: "title",
-      description: "Name of school",
-      type: "string",
-    },
-    {
-      name: "image",
-      title: "Image",
+      name: "diplomaImage",
+      title: "Diploma Image",
       type: "image",
       options: {
         hotspot: true,
       },
     },
+ 
     {
-      name: "degree",
-      title: "Degree",
-      type: "text",
+      name: "yearStarted",
+      title: "yearStarted",
+      type: "number",
+      min: "1960",
+      max:"2099",
+      step:"1",
     },
-  
+
     {
-      name: "linkToBuild",
-      title: "LinkToBuild",
+      name: "dateEnded",
+      title: "DateEnded",
+      type: "number",
+      min: "1960",
+      max:"2099",
+      step:"1",
+    },
+
+    {
+      name: "linkToCetrificate",
+      title: "LinkToCertificate",
       type: "url",
     },
   ],
