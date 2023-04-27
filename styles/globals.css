@@ -88,3 +88,10 @@
   left: 50%;
   transform: translate(-50%, 50%);
 }
+.custom-arrow-color {
+  color: rgba(123, 255, 0, 0.3);
+}
+
+.custom-arrow-color:hover {
+  color: #7bff00;
+}
