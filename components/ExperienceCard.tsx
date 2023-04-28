@@ -5,6 +5,7 @@ import { urlFor } from "../sanity";
 
 type Props = {
   experience: Experience;
+  className?: string;
 };
 
 function ExperienceCard({ experience }: Props) {

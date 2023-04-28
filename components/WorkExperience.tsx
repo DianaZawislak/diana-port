@@ -9,21 +9,25 @@ type Props = {
 };
 
 function WorkExperience({ experiences }: Props) {
-  const scrollRef = useRef(null);
+  const scrollRef = useRef<HTMLDivElement>(null); // Update the ref type
   const scrollAmount = 200; // The amount of pixels to scroll
 
   const scrollLeft = () => {
-    scrollRef.current.scrollBy({
-      left: -scrollAmount,
-      behavior: "smooth",
-    });
+    if (scrollRef.current !== null) { // Add this null check
+      scrollRef.current.scrollBy({
+        left: -scrollAmount,
+        behavior: "smooth",
+      });
+    }
   };
 
   const scrollRight = () => {
-    scrollRef.current.scrollBy({
-      left: scrollAmount,
-      behavior: "smooth",
-    });
+    if (scrollRef.current !== null) { // Add this null check
+      scrollRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (

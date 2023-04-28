@@ -8,23 +8,26 @@ type Props = {
 };
 
 function Education({ school }: Props) {
-    const scrollRef = useRef(null);
+    const scrollRef = useRef<HTMLDivElement>(null); // Update the ref type here
     const scrollAmount = 200; // The amount of pixels to scroll
-
+  
     const scrollLeft = () => {
+      if (scrollRef.current !== null) {
         scrollRef.current.scrollBy({
-            left: -scrollAmount,
-            behavior: "smooth",
+          left: -scrollAmount,
+          behavior: "smooth",
         });
+      }
     };
-
+  
     const scrollRight = () => {
+      if (scrollRef.current !== null) {
         scrollRef.current.scrollBy({
-            left: scrollAmount,
-            behavior: "smooth",
+          left: scrollAmount,
+          behavior: "smooth",
         });
+      }
     };
-
     return (
         <>
             <style>
