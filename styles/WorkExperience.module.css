@@ -1,0 +1,48 @@
+.experience-heading {
+    position: absolute;
+    top: 100px;
+  }
+  
+  @media (max-width: 1024px) {
+    .experience-heading {
+      top: 16px;
+      font-size: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .experience-heading {
+      top: 12px;
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .experience-heading {
+      top: 8px;
+      font-size: 1.5rem;
+    }
+  }
+  
+  .left-arrow-button {
+    position: absolute;
+    left: 5px;
+  }
+  
+  .right-arrow-button {
+    position: absolute;
+    right: 5px;
+  }
+  
+  @media (max-width: 640px) {
+    .left-arrow-button {
+      left: .2rem;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .right-arrow-button {
+      right: .2rem;
+    }
+  }
+  

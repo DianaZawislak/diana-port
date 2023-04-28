@@ -4,31 +4,31 @@ import EducationCard from "./EducationCard";
 import { EducationType } from "../typings";
 
 type Props = {
-  school: EducationType[];
+    school: EducationType[];
 };
 
 function Education({ school }: Props) {
-  const scrollRef = useRef(null);
-  const scrollAmount = 200; // The amount of pixels to scroll
+    const scrollRef = useRef(null);
+    const scrollAmount = 200; // The amount of pixels to scroll
 
-  const scrollLeft = () => {
-    scrollRef.current.scrollBy({
-      left: -scrollAmount,
-      behavior: "smooth",
-    });
-  };
+    const scrollLeft = () => {
+        scrollRef.current.scrollBy({
+            left: -scrollAmount,
+            behavior: "smooth",
+        });
+    };
 
-  const scrollRight = () => {
-    scrollRef.current.scrollBy({
-      left: scrollAmount,
-      behavior: "smooth",
-    });
-  };
+    const scrollRight = () => {
+        scrollRef.current.scrollBy({
+            left: scrollAmount,
+            behavior: "smooth",
+        });
+    };
 
-  return (
-    <>
-      <style>
-        {`
+    return (
+        <>
+            <style>
+                {`
           .education-card-image {
             width: 100%;
             height: auto;
@@ -69,44 +69,64 @@ function Education({ school }: Props) {
               font-size: 4rem !important;
             }
           }
+
+          @media (max-width: 640px) {
+            .right-arrow-button {
+              right: .2rem !important;
+            }
+          }
+
+          @media (max-width: 640px) {
+            .left-arrow-button {
+              left: .2rem !important;
+            }
+          }
+          
         `}
-      </style>
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className="flex relative overflow-hidden flex-col text-center md:flex-row max-w-full px-5 font-thin h-screen justify-evenly mx-auto items-center"
-      >
-   <h3 className="absolute top-[100px] sm:top-[80px] md:top-[60px] lg:top-[40px] uppercase tracking-[20px] text-gray-500 text-2xl lg:text-4xl md:text-3xl sm:text-2xl">
-  Education
-</h3>
+            </style>
 
 
-        <button
-          className="arrow-button absolute left-5 z-10 h-full w-12 flex items-center custom-arrow-color justify-center text-8xl text-#7bff00"
-          onClick={scrollLeft}
-        >
-          &lsaquo;
-        </button>
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1.5 }}
+                className="flex relative overflow-hidden flex-col 
+                    text-center md:flex-row max-w-full px-5 
+                    font-thin h-screen justify-evenly mx-auto items-center"
+            >
+                <h3 className="absolute top-[100px] sm:top-[80px] md:top-[60px] lg:top-[70px] 
+                               uppercase tracking-[20px] text-gray-500 text-2xl lg:text-4xl md:text-3xl sm:text-2xl">
+                    Education
+                </h3>
 
-        <div
-          ref={scrollRef}
-          className="w-full flex space-x-5 gap-5 overflow-x-scroll p-10 snap-x snap-mandatory scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#7bff00]/40"
-        >
-          {school?.reverse().map((education) => (
-            <EducationCard key={education._id} education={education} />
-          ))}
-        </div>
 
-        <button
-          className="arrow-button absolute right-5 z-10 h-full w-12 flex items-center justify-center text-8xl custom-arrow-color"
-          onClick={scrollRight}
-        >
-          &rsaquo;
-        </button>
-      </motion.div>
-    </>
-  );
+                <button
+                    className="arrow-button absolute left-5 z-10 h-full w-12 flex items-center left-arrow-button custom-arrow-color justify-center text-8xl text-#7bff00"
+                    onClick={scrollLeft}
+                >
+                    &lsaquo;
+                </button>
+
+                <div
+                    ref={scrollRef}
+                    className="w-full flex space-x-5 gap-5 mt-10 overflow-x-scroll   snap-x snap-mandatory scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#7bff00]/40 xl:pl-[50%] lg:pl-[40%] md:pl-[5%] sm:pl-0"
+                >
+                    {school?.map((education) => (
+                        <EducationCard key={education._id} education={education} />
+                    ))}
+                </div>
+
+                <button
+                    className="arrow-button absolute right-5  z-10 h-full w-12 flex items-center right-arrow-button justify-center text-8xl custom-arrow-color"
+                    onClick={scrollRight}
+                >
+                    &rsaquo;
+                </button>
+            </motion.div>
+        </>
+
+    );
+
 }
 
 export default Education;

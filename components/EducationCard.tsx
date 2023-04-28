@@ -10,38 +10,53 @@ type Props = {
 function EducationCard({ education }: Props) {
   return (
     <article
-      className="flex flex-col rounded-lg items-center mt-5 space-y-7 flex-shrink-0 xl:w-[900px] xl-h[800px] snap-center bg-[#252323]
-      p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-scroll lg:overflow-hidden"
+      className="flex flex-col rounded-lg items-center  mt-5 space-y-7 flex-shrink-0  h-[500px] md:h-[800px] lg:h-[400px] xl:w-[900px] xl:h-[700px] snap-center bg-[#252323]
+      p-5 hover:opacity-100 opacity-40 cursor-pointer transition-opacity small-screen-opacity duration-200 overflow-scroll lg:overflow-hidden
+      w-full sm:w-full md:w-3/4"
       style={{ margin: "0 auto" }}
     >
       <style>
         {`
         .education-card-image {
-          width: 100%;
+          width: 80%;
           height: auto;
-          max-height: 40vh;
+          max-height: 100vh;
         }
 
         @media (max-width: 1024px) {
           .education-card-image {
-            width: 80%;
-            max-height: 35vh;
+            width: 100%;
+            max-height: 60vh;
+            padding-top: 80px;
+          }
+          .small-screen-opacity {
+            opacity: 100;
           }
         }
 
         @media (max-width: 768px) {
           .education-card-image {
-            width: 60%;
-            max-height: 30vh;
+            width: 100%;
+            max-height: 60vh;
+            padding-top: 50px;
+          }
+          .small-screen-opacity {
+            opacity: 100;
           }
         }
 
         @media (max-width: 480px) {
           .education-card-image {
             width: 100%;
-            max-height: 25vh;
+            max-height: 40vh;
+            padding-top: 50px;
+           
+          }
+          .small-screen-opacity {
+            opacity: 100;
           }
         }
+  
       `}
       </style>
       <motion.img

@@ -95,3 +95,7 @@
 .custom-arrow-color:hover {
   color: #7bff00;
 }
+
+.scrollbar::-webkit-scrollbar {
+  height: 3px; /* Adjust this value to make the scrollbar thinner or thicker */
+}
