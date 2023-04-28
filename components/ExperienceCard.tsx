@@ -30,7 +30,7 @@ function ExperienceCard({ experience }: Props) {
             
           }
           .experience-card-description {
-            font-size: 1.3rem; 
+            font-size: 1rem; 
            
             }
             }
@@ -41,6 +41,8 @@ function ExperienceCard({ experience }: Props) {
             width: 100%;
             max-height: 30vh;
           }
+          .experience-card-description {
+            font-size: 1rem; 
         }
 
         @media (max-width: 480px) {
