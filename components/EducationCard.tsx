@@ -10,16 +10,16 @@ type Props = {
 function EducationCard({ education }: Props) {
   return (
     <article
-      className="flex flex-col rounded-lg items-center  mt-5 space-y-7 flex-shrink-0  h-[500px] md:h-[800px] lg:h-[400px] xl:w-[900px] xl:h-[700px] snap-center bg-[#252323]
-      p-5 hover:opacity-100 opacity-40 cursor-pointer transition-opacity small-screen-opacity duration-200 overflow-scroll lg:overflow-hidden
+      className="flex flex-col rounded-lg items-center  mt-5 space-y-7 flex-shrink-0  h-[600px] md:h-[620px] lg:h-[600px] xl:w-[900px] xl:h-[600px] snap-center bg-[#252323]
+      p-5 hover:opacity-100 opacity-40 cursor-pointer transition-opacity small-screen-opacity duration-200 overflow-hidden
       w-full sm:w-full md:w-3/4"
       style={{ margin: "0 auto" }}
     >
       <style>
         {`
         .education-card-image {
-          width: 80%;
-          height: auto;
+          width: auto;
+          height: 80%;
           max-height: 100vh;
         }
 

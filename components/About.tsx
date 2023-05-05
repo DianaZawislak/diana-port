@@ -27,15 +27,19 @@ function About({ pageInfo }: Props) {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         src={urlFor(pageInfo?.profilePic).url()}
-        className="w-[120px] h-[120px]  rounded-full xl:w-[300px] xl:h-[300px] lg:w-[300px] lg:h-[300px] object-cover mt-24 "
+        className="w-[110px] h-[110px]  rounded-full xl:w-[300px] xl:h-[300px] lg:w-[300px] lg:h-[300px] object-cover mt-24 "
       ></motion.img>
  
-      <div className="space-y-10 px-0 md:px-5 flex-shrink-4">
+      <div className="space-y-5 px-0 md:px-3 flex-shrink-4">
         <h4 className="text-lg l md:text-lg lg:text-2xl px-10 font-semibold  text-gray-300">
-          Here is a little bit about me...{" "}
+          A little bit about me...{" "}
 
         </h4>
-        <p className="text-sm md:text-lg sm:text-xs lg:text-md lg:px-10  md:px-10 flex-shrink-4 text-gray-300">{pageInfo?.backgroundInformation}</p>
+        <div className="lg:px-10 md:px-10 flex flex-col h-[310px] md:h-auto sm:h-[400px] overflow-y-scroll">
+    <p className="text-sm md:text-lg sm:text-xs lg:text-md flex-shrink-4 text-gray-300">
+      {pageInfo?.backgroundInformation}
+    </p>
+  </div>
       </div>
     </motion.div>
   );

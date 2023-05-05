@@ -89,11 +89,18 @@
   transform: translate(-50%, 50%);
 }
 .custom-arrow-color {
-  color: rgba(123, 255, 0, 0.3);
+  color: rgba(30, 32, 30, 0.977);
 }
 
 .custom-arrow-color:hover {
   color: #7bff00;
+}
+.custom-arrow-color1 {
+  color: #7bff00;
+}
+
+.custom-arrow-color1:hover {
+  color: #7bff0073;
 }
 
 .scrollbar::-webkit-scrollbar {

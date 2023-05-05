@@ -11,8 +11,8 @@ type Props = {
 function ExperienceCard({ experience }: Props) {
   return (
     <article
-      className="flex flex-col rounded-lg items-center mt-5 space-y-7 flex-shrink-0 h-[450px]  md:h-[700px] lg:h-[400px] xl:w-[900px] xl:h-[700px] snap-center bg-[#252323]
-      p-5 hover:opacity-100 opacity-40 cursor-pointer transition-opacity small-screen-opacity duration-200 overflow-scroll lg:overflow-hidden
+      className="flex flex-col rounded-lg items-center mt-5 space-y-7 flex-shrink-0 h-[550px]  sm:h-[100px] md:h-[600px] lg:h-[600px] xl:w-[700px] xl:h-[600px] snap-center bg-[#252323]
+      p-5 hover:opacity-100 opacity-40 cursor-pointer transition-opacity small-screen-opacity duration-200  xl:overflow-hidden lg:overflow-hidden md:overflow-hidden overflow-scroll
       w-full sm:w-full md:w-3/4 experience-card-description"
       style={{ margin: "0 auto" }}
     >
@@ -40,7 +40,7 @@ function ExperienceCard({ experience }: Props) {
         @media (max-width: 768px) {
           .experience-card-image {
             width: 100%;
-            max-height: 30vh;
+            max-height: 50vh;
           }
           .experience-card-description {
             font-size: 1rem; 
@@ -49,7 +49,7 @@ function ExperienceCard({ experience }: Props) {
         @media (max-width: 480px) {
           .experience-card-image {
             width: 25%;
-            max-height: 10vh;
+            max-height: 5vh;
           }
           .small-screen-opacity {
             opacity: 100;

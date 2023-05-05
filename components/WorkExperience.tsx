@@ -42,7 +42,7 @@ function WorkExperience({ experiences }: Props) {
       </h3>
 
       <button
-        className="arrow-button absolute left-5 z-10 h-full w-12 flex items-center left-arrow-button custom-arrow-color justify-center text-8xl text-#7bff00"
+        className="arrow-button absolute left-5 z-10 h-full w-12 flex items-center left-arrow-button custom-arrow-color1 justify-center text-8xl text-#7bff00"
         onClick={scrollLeft}
       >
         &lsaquo;
@@ -63,7 +63,7 @@ function WorkExperience({ experiences }: Props) {
       </div>
 
       <button
-        className="arrow-button absolute right-5 z-10 h-full w-12 flex items-center right-arrow-button justify-center text-8xl custom-arrow-color"
+        className="arrow-button absolute right-5 z-10 h-full w-12 flex items-center right-arrow-button justify-center text-8xl custom-arrow-color1"
         onClick={scrollRight}
       >
         &rsaquo;
