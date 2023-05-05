@@ -37,9 +37,9 @@ function EducationCard({ education }: Props) {
   const [ref, inView] = useInView();
   return (
     <article
-      className="flex flex-col rounded-lg items-center  mt-5 space-y-7 flex-shrink-0  h-[600px]  md:h-[700px] md:w-[620px] lg:h-[650px] lg:w-[700px] xl:w-[700px] xl:h-[600px] snap-center bg-[#252323]
+      className="flex flex-col rounded-lg items-center  mt-5 space-y-7 flex-shrink-0  h-[600px]  md:h-[700px] md:w-[620px] lg:h-[650px] lg:w-[700px] xl:w-[700px] xl:h-[600px]   snap-center bg-[#252323]
       p-3 hover:opacity-100 opacity-70 cursor-pointer transition-opacity small-screen-opacity duration-200 overflow-hidden
-      w-full sm:w-full "
+      w-full sm:w-full"
       style={{ margin: "0 auto" }}
     >
       <style>
@@ -82,9 +82,18 @@ function EducationCard({ education }: Props) {
           .small-screen-opacity {
             opacity: 100;
           }
-        }
+          article {
+            height: 450px !important;
+            margin-top: 20px !important;
+          }
+        
+      
+       
+    
+      
+      `}  
   
-      `}
+     
       </style>
       <motion.img
         ref={ref}
