@@ -40,6 +40,7 @@ interface SanityBody {
   export interface EducationType extends SanityBody {
     _type: "education";
     diplomaImage: Image;
+    certificateName: string;
     yearStarted: number;
     dateEnded: number;
     linkToCertificate: string;
