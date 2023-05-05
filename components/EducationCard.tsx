@@ -37,15 +37,15 @@ function EducationCard({ education }: Props) {
   const [ref, inView] = useInView();
   return (
     <article
-      className="flex flex-col rounded-lg items-center  mt-5 space-y-7 flex-shrink-0  h-[600px] md:h-[620px] lg:h-[600px] xl:w-[900px] xl:h-[600px] snap-center bg-[#252323]
-      p-5 hover:opacity-100 opacity-70 cursor-pointer transition-opacity small-screen-opacity duration-200 overflow-hidden
-      w-full sm:w-full md:w-3/4"
+      className="flex flex-col rounded-lg items-center  mt-5 space-y-7 flex-shrink-0  h-[600px]  md:h-[700px] md:w-[620px] lg:h-[650px] lg:w-[700px] xl:w-[700px] xl:h-[600px] snap-center bg-[#252323]
+      p-3 hover:opacity-100 opacity-70 cursor-pointer transition-opacity small-screen-opacity duration-200 overflow-hidden
+      w-full sm:w-full "
       style={{ margin: "0 auto" }}
     >
       <style>
         {`
         .education-card-image {
-          width: auto;
+          width: 100%;
           height: 80%;
           max-height: 100vh;
         }
@@ -53,7 +53,7 @@ function EducationCard({ education }: Props) {
         @media (max-width: 1024px) {
           .education-card-image {
             width: 100%;
-            max-height: 60vh;
+            max-height: 0vh;
             padding-top: 80px;
           }
           .small-screen-opacity {
