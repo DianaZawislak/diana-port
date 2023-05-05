@@ -7,9 +7,9 @@ type Props = {
   education: EducationType;
 };
 
-function useInView() {
+function useInView(): [React.RefObject<HTMLImageElement>, boolean] {
+  const ref = useRef<HTMLImageElement>(null);
   const [inView, setInView] = useState(false);
-  const ref = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
