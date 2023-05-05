@@ -9,7 +9,7 @@ type Props = {
 
 function Education({ school }: Props) {
     const scrollRef = useRef<HTMLDivElement>(null); // Update the ref type here
-    const scrollAmount = 200; // The amount of pixels to scroll
+    const scrollAmount = 600; // The amount of pixels to scroll
   
     const scrollLeft = () => {
       if (scrollRef.current !== null) {
@@ -112,7 +112,7 @@ function Education({ school }: Props) {
 
                 <div
                     ref={scrollRef}
-                    className="w-full flex space-x-5 gap-5 mt-10 overflow-x-scroll   snap-x snap-mandatory scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#7bff00]/40 xl:pl-[50%] lg:pl-[40%] md:pl-[5%] sm:pl-0"
+                    className="w-full flex space-x-5 gap-5 mt-10 overflow-x-scroll   snap-x snap-mandatory scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#7bff00]/40 xl:pl-[80%] lg:pl-[40%] md:pl-[5%] sm:pl-0"
                 >
                     {school?.map((education) => (
                         <EducationCard key={education._id} education={education} />

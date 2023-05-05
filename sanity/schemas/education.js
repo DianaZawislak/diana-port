@@ -12,6 +12,11 @@ export default {
         hotspot: true,
       },
     },
+    {
+      name: "certificateName",
+      title: "Certificate Name",
+      type: "string",
+    },
  
     {
       name: "yearStarted",

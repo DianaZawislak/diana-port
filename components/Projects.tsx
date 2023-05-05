@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { Project } from "../typings";
 import { urlFor } from "../sanity";
@@ -8,9 +8,21 @@ type Props = {
   projects: Project[];
 };
 
-
-
 function Projects({ projects }: Props) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -window.innerWidth, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: window.innerWidth, behavior: "smooth" });
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -22,7 +34,10 @@ function Projects({ projects }: Props) {
         Projects
       </h3>
 
-      <div className="relative w-full  flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#7bff00]/50">
+      <div
+        className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#7bff00]/50"
+        ref={scrollRef}
+      >
         {projects.map((project, i) => (
           <motion.div
             key={project._id}
@@ -37,7 +52,7 @@ function Projects({ projects }: Props) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 src={urlFor(project?.image).url()}
-                className=" sm:w-200 sm:h-300 md:w-260 md:h-400 lg:w-[800px] lg:h-[480px] xl:w-[900px] xl:h-[400px] object-contain cursor-pointer"
+                className="sm:w-200 sm:h-300 md:w-260 md:h-400 lg:w-[800px] lg:h-[480px] xl:w-[900px] xl:h-[400px] object-contain cursor-pointer"
               />
             </Link>
 
@@ -48,16 +63,26 @@ function Projects({ projects }: Props) {
                 </span>{" "}
                 {project.title}
               </h4>
-              <div style={{maxWidth: "700px"}}>
-              <p className="text-sm lg:text-md text-center ">
-                {project.summary}
-              </p>
+              <div style={{ maxWidth: "700px" }}>
+                <p className="text-sm lg:text-md text-center">{project.summary}</p>
               </div>
             </div>
-            
           </motion.div>
         ))}
       </div>
+
+      <button
+  className="arrow-button absolute left-5 z-50 h-full w-12 flex items-center left-arrow-button custom-arrow-color1 justify-center text-7xl text-#7bff00"
+  onClick={scrollLeft}
+>
+  &lsaquo;
+</button>
+<button
+  className="arrow-button absolute right-5 z-50 h-full w-12 flex items-center right-arrow-button justify-center text-7xl custom-arrow-color1"
+  onClick={scrollRight}
+>
+  &rsaquo;
+</button>
 
       {/* This is skweded strip in project section */}
 
