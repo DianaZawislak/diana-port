@@ -148,11 +148,13 @@ function Education({ school }: Props) {
                 >
                     {school?.map((education) => (
                         <motion.div 
-                            key={education._id} 
-                            variants={variants}
-                            initial='hidden'
-                            animate='show'
-                        >
+                        key={education._id} 
+                        variants={variants}
+                        initial='hidden'
+                        animate='show'
+                        className='flex-none'
+                        style={{ width: '100%' }} // or a fixed width '600px' for example
+                    >
                             <EducationCard education={education} />
                         </motion.div>
                     ))}
