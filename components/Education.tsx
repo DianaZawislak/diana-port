@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import EducationCard from "./EducationCard";
 import { EducationType } from "../typings";
@@ -8,15 +8,38 @@ type Props = {
 };
 
 function Education({ school }: Props) {
-    const scrollRef = useRef<HTMLDivElement>(null); // Update the ref type here
-    const scrollAmount = 600; // The amount of pixels to scroll
-  
+    const scrollRef = useRef<HTMLDivElement>(null); 
+    const scrollAmount = 600; 
+    const [isAtLeftEnd, setIsAtLeftEnd] = useState(true);
+    const [isAtRightEnd, setIsAtRightEnd] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(0);
+    
+    const handleScroll = () => {
+      if (scrollRef.current) {
+        setIsAtLeftEnd(scrollRef.current.scrollLeft === 0);
+        setIsAtRightEnd(scrollRef.current.scrollWidth - scrollRef.current.scrollLeft === scrollRef.current.clientWidth);
+      }
+    };
+
+    useEffect(() => {
+      handleScroll();
+      if (scrollRef.current) {
+        scrollRef.current.addEventListener('scroll', handleScroll);
+      }
+      return () => {
+        if (scrollRef.current) {
+          scrollRef.current.removeEventListener('scroll', handleScroll);
+        }
+      };
+    }, []);
+
     const scrollLeft = () => {
       if (scrollRef.current !== null) {
         scrollRef.current.scrollBy({
           left: -scrollAmount,
           behavior: "smooth",
         });
+        if(activeIndex > 0) setActiveIndex(activeIndex - 1);
       }
     };
   
@@ -26,12 +49,26 @@ function Education({ school }: Props) {
           left: scrollAmount,
           behavior: "smooth",
         });
+        if(activeIndex < school.length - 1) setActiveIndex(activeIndex + 1);
       }
     };
+
+    const variants = {
+      hidden: { opacity: 0, y: '-100%' },
+      show: {
+        opacity: 1,
+        y: '0%',
+        transition: {
+          duration: 1,
+        },
+      },
+      exit: { y: '-100%', transition: { duration: 1 } }
+    };
+
     return (
         <>
             <style>
-                {`
+            {`
           .education-card-image {
             width: 100%;
             height: auto;
@@ -88,48 +125,50 @@ function Education({ school }: Props) {
         `}
             </style>
 
-
             <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 1.5 }}
+                initial="hidden"
+                animate="show"
+                variants={variants}
                 className="flex relative overflow-hidden flex-col 
                     text-center md:flex-row max-w-full px-5 
                     font-thin h-screen justify-evenly mx-auto items-center"
             >
-                <h3 className="absolute top-[100px] sm:top-[80px] md:top-[60px] lg:top-[70px] 
-                               uppercase tracking-[20px] text-gray-500 text-2xl lg:text-4xl md:text-3xl sm:text-2xl">
-                    Education
-                </h3>
-
-
-                <button
-                    className="arrow-button absolute left-5 z-10 h-full w-12 flex items-center left-arrow-button custom-arrow-color justify-center text-8xl text-#7bff00"
+                {!isAtLeftEnd && (
+                  <button
+                    className="arrow-button absolute left-5 z-10 h-full w-12 flex items-center justify-center text-8xl text-#7bff00"
                     onClick={scrollLeft}
-                >
+                  >
                     &lsaquo;
-                </button>
+                  </button>
+                )}
 
                 <div
                     ref={scrollRef}
-                    className="w-full flex space-x-5 gap-5 mt-10 overflow-x-scroll   snap-x snap-mandatory scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#7bff00]/40 xl:pl-[80%] lg:pl-[40%] md:pl-[5%] sm:pl-0"
+                    className="w-full flex space-x-5 gap-5 mt-10 overflow-x-scroll snap-x snap-mandatory scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#7bff00]/40 xl:pl-[80%] lg:pl-[40%] md:pl-[5%] sm:pl-0"
                 >
                     {school?.map((education) => (
-                        <EducationCard key={education._id} education={education} />
+                        <motion.div 
+                            key={education._id} 
+                            variants={variants}
+                            initial='hidden'
+                            animate='show'
+                        >
+                            <EducationCard education={education} />
+                        </motion.div>
                     ))}
                 </div>
 
-                <button
-                    className="arrow-button absolute right-5  z-10 h-full w-12 flex items-center right-arrow-button justify-center text-8xl custom-arrow-color"
+                {!isAtRightEnd && (
+                  <button
+                    className="arrow-button absolute right-5  z-10 h-full w-12 flex items-center justify-center text-8xl text-#7bff00"
                     onClick={scrollRight}
-                >
+                  >
                     &rsaquo;
-                </button>
+                  </button>
+                )}
             </motion.div>
         </>
-
     );
-
 }
 
 export default Education;
