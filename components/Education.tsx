@@ -9,7 +9,7 @@ type Props = {
 
 function Education({ school }: Props) {
     const scrollRef = useRef<HTMLDivElement>(null); 
-    const scrollAmount = 600; 
+    const scrollAmount = 400; 
     const [isAtLeftEnd, setIsAtLeftEnd] = useState(true);
     const [isAtRightEnd, setIsAtRightEnd] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
@@ -32,8 +32,6 @@ function Education({ school }: Props) {
         }
       };
     }, []);
-
-    
 
     const scrollLeft = () => {
       if (scrollRef.current !== null) {
@@ -150,13 +148,13 @@ function Education({ school }: Props) {
                 >
                     {school?.map((education) => (
                         <motion.div 
-                        key={education._id} 
-                        variants={variants}
-                        initial='hidden'
-                        animate='show'
-                        className='flex-none'
-                        style={{ width: '100%' }} // or a fixed width '600px' for example
-                    >
+                     key={education._id} 
+            variants={variants}
+            initial='hidden'
+            animate='show'
+            className='flex-none'
+            style={{ width: '100%' }} // or a fixed width '600px' for example
+        >
                             <EducationCard education={education} />
                         </motion.div>
                     ))}
