@@ -9,20 +9,27 @@ type Props = {
 
 function Education({ school }: Props) {
     const scrollRef = useRef<HTMLDivElement>(null); 
-    const [scrollAmount, setScrollAmount] = useState(window.innerWidth < 768 ? 300 : 600);
+    const scrollAmount = 600; 
     const [isAtLeftEnd, setIsAtLeftEnd] = useState(true);
     const [isAtRightEnd, setIsAtRightEnd] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
+    
+    const handleScroll = () => {
+      if (scrollRef.current) {
+        setIsAtLeftEnd(scrollRef.current.scrollLeft === 0);
+        setIsAtRightEnd(scrollRef.current.scrollWidth - scrollRef.current.scrollLeft === scrollRef.current.clientWidth);
+      }
+    };
 
     useEffect(() => {
-      function handleResize() {
-        setScrollAmount(window.innerWidth < 768 ? 300 : 600);
+      handleScroll();
+      if (scrollRef.current) {
+        scrollRef.current.addEventListener('scroll', handleScroll);
       }
-
-      window.addEventListener('resize', handleResize);
-
       return () => {
-        window.removeEventListener('resize', handleResize);
+        if (scrollRef.current) {
+          scrollRef.current.removeEventListener('scroll', handleScroll);
+        }
       };
     }, []);
 
