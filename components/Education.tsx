@@ -36,13 +36,12 @@ function Education({ school }: Props) {
     }, []);
 
     const scrollLeft = () => {
-      if (scrollRef.current !== null && cardRefs.current[activeIndex]) {
+      if (scrollRef.current !== null && cardRefs.current[activeIndex] != null) {
         const cardWidth = cardRefs.current[activeIndex].offsetWidth;
         scrollRef.current.scrollBy({
           left: -cardWidth,
           behavior: "smooth",
         });
-        if (activeIndex > 0) setActiveIndex(activeIndex - 1);
       }
     };
 
