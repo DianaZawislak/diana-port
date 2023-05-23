@@ -37,25 +37,31 @@ function Education({ school }: Props) {
 
     const scrollLeft = () => {
       if (scrollRef.current !== null && cardRefs.current[activeIndex] != null) {
-        const cardWidth = cardRefs.current[activeIndex].offsetWidth;
-        scrollRef.current.scrollBy({
-          left: -cardWidth,
-          behavior: "smooth",
-        });
+        const card = cardRefs.current[activeIndex];
+        if (card !== null) {
+          const cardWidth = card.offsetWidth;
+          scrollRef.current.scrollBy({
+            left: -cardWidth,
+            behavior: "smooth",
+          });
+        }
       }
     };
-
+    
     const scrollRight = () => {
-      if (scrollRef.current !== null && cardRefs.current[activeIndex + 1]) {
-        const cardWidth = cardRefs.current[activeIndex + 1].offsetWidth;
-        scrollRef.current.scrollBy({
-          left: cardWidth,
-          behavior: "smooth",
-        });
-        if (activeIndex < school.length - 1) setActiveIndex(activeIndex + 1);
+      if (scrollRef.current !== null && cardRefs.current[activeIndex + 1] !== null) {
+        const card = cardRefs.current[activeIndex + 1];
+        if (card !== null) {
+          const cardWidth = card.offsetWidth;
+          scrollRef.current.scrollBy({
+            left: cardWidth,
+            behavior: "smooth",
+          });
+          if (activeIndex < school.length - 1) setActiveIndex(activeIndex + 1);
+        }
       }
     };
-
+    
     const variants = {
       hidden: { opacity: 0, y: "-100%" },
       show: {
