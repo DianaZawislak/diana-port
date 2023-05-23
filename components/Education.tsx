@@ -9,11 +9,10 @@ type Props = {
 
 function Education({ school }: Props) {
     const scrollRef = useRef<HTMLDivElement>(null);
-    const cardRefs = useRef([]);
+    const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
     const [isAtLeftEnd, setIsAtLeftEnd] = useState(true);
     const [isAtRightEnd, setIsAtRightEnd] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
-
     const handleScroll = () => {
       if (scrollRef.current) {
         setIsAtLeftEnd(scrollRef.current.scrollLeft === 0);
