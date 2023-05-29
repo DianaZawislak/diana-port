@@ -13,6 +13,7 @@ pnpm dev
 ```
 
 To update deployment:
+Currently automated with each sanity update, if automatic deployment fails here are manual commands:
 ```bash
 docker build -t aaaaa .
 heroku container:push web -a aportfolio
