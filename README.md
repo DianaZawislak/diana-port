@@ -1,5 +1,4 @@
-[![Deploy to Heroku](https://github.com/DianaZawislak/diana-port/actions/workflows/main.yml/badge.svg?event=deployment_status)](https://github.com/DianaZawislak/diana-port/actions/workflows/main.yml)
-
+[![Deploy to Heroku](https://github.com/DianaZawislak/diana-port/actions/workflows/main.yml/badge.svg)](https://github.com/DianaZawislak/diana-port/actions/workflows/main.yml)
 
 This is personal portfolio page built with Next.js. React, sanity, typescript
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
