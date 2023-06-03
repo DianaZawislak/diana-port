@@ -30,9 +30,13 @@ function Projects({ projects }: Props) {
       transition={{ duration: 1.5 }}
       className="flex relative overflow-hidden flex-col text-left md:flex-row max-w-full h-screen justify-evenly mx-auto items-center z-0"
     >
-      <h3 className="absolute top-28 uppercase tracking-[20px] text-gray-500 text-2xl lg:text-4xl md:text-3xl  sm:text-2xl">
-        Projects
-      </h3>
+ <h3 className="absolute top-28 uppercase tracking-[20px] text-gray-500 text-2xl lg:text-4xl md:text-3xl  sm:text-2xl text-center">
+ <span>Projects</span>
+  <br/>
+  <span className="text-sm tracking-[5px]">(click on image to see build or source code)</span>
+</h3>
+
+    
 
       <div
         className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#7bff00]/50"
