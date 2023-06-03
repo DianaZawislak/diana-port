@@ -55,18 +55,15 @@ function Projects({ projects }: Props) {
                 className="sm:w-200 sm:h-300 md:w-260 md:h-400 lg:w-[800px] lg:h-[480px] xl:w-[900px] xl:h-[400px] object-contain cursor-pointer"
               />
             </Link>
-
             <div className="space-y-5 px-0 md:px-10 max-w-6xl">
-              <h4 className="lg:text-2xl sm:text-xs md:text-sm font-semibold text-center">
-                <span>
-                  Project {i + 1} of {projects.length}:
-                </span>{" "}
-                {project.title}
-              </h4>
-              <div style={{ maxWidth: "700px" }}>
-                <p className="text-sm lg:text-md text-center">{project.summary}</p>
-              </div>
-            </div>
+  <h4 className="lg:text-2xl sm:text-xs md:text-sm font-semibold text-center">
+    <span>Project {i + 1} of {projects.length}: </span>{project.title}
+  </h4>
+  <div style={{ maxWidth: "700px", overflowY: "scroll", maxHeight: "200px" }}>
+    <p className="text-sm lg:text-md text-center">{project.summary}</p>
+  </div>
+</div>
+
           </motion.div>
         ))}
       </div>

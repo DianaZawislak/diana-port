@@ -21,7 +21,7 @@ function Skills({ skills }: Props) {
       </h3>
       <h3 className="absolute bottom-40 mt-10 uppercase tracking-[3px] pulsing-text">
         <a
-          href="\ResumeDianaZawislak2023.pdf"
+          href="\ResumeDianaZawislak23.pdf"
           download="DianaZawislakResume"
           className=" lg:text-2xl sm:text-xl mb-10 "
         >
