@@ -50,7 +50,12 @@ const Home = ({ projects, skills, pageInfo, experiences, socials, school }: Prop
           <About pageInfo={pageInfo} />
         </section>
 
-        
+       {/* Projects Section */}
+       <section id="projects" className="snap-start">
+          <Projects projects={projects} />
+       </section>
+
+
         {/* Education Section */}
         <section id="education" className="snap-center">
           <Education school={school} />
@@ -66,12 +71,7 @@ const Home = ({ projects, skills, pageInfo, experiences, socials, school }: Prop
           <WorkExperience experiences={experiences} />
         </section>
 
-
-
-        {/* Projects Section */}
-        <section id="projects" className="snap-start">
-          <Projects projects={projects} />
-        </section>
+              
 
         {/* Contact Me Section */}
         <section id="contact" className="snap-start">

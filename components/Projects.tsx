@@ -42,7 +42,7 @@ function Projects({ projects }: Props) {
         className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#7bff00]/50"
         ref={scrollRef}
       >
-        {projects.map((project, i) => (
+       {[...projects].reverse().map((project, i) => (
           <motion.div
             key={project._id}
             className="w-screen flex flex-col items-center justify-center flex-shrink-0 snap-center p-20 md:p-44 h-screen"
