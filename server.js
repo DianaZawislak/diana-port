@@ -1,6 +1,7 @@
 const express = require('express');
 const next = require('next');
 const { parse } = require('url');
+const { register } = require('prom-client');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -16,6 +17,12 @@ app.prepare().then(() => {
     } else {
       next();
     }
+  });
+
+  // Expose Prometheus metrics
+  server.get('/metrics', (req, res) => {
+    res.set('Content-Type', register.contentType);
+    res.end(register.metrics());
   });
 
   server.all('*', (req, res) => {
